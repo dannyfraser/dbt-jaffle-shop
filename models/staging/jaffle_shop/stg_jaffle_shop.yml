@@ -3,8 +3,10 @@ version: 2
 models:
 
     - name: stg_customers
+      description: Customer details, one customer per row.
       columns:
         - name: customer_id
+          description: Primary key for customer
           tests:
             - unique
             - not_null
@@ -17,6 +19,7 @@ models:
             - not_null
         
         - name: status
+          description: '{{ doc("order_status") }}'
           tests:
             - accepted_values:
                 values: ['completed', 'shipped', 'returned', 'placed', 'return_pending']
